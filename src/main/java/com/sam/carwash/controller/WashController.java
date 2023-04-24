@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sam.carwash.entity.WashEntity;
-import com.sam.carwash.model.Wash;
+import com.sam.carwash.entity.Wash;
 import com.sam.carwash.service.WashService;
 
 @RestController
@@ -23,27 +22,27 @@ public class WashController {
     private WashService washService;
 
     @PostMapping("/save")
-    public WashEntity save(@RequestBody WashEntity washEntity){
+    public Wash save(@RequestBody Wash washEntity){
 return washService.save(washEntity);
     }
     @GetMapping()
-    public List<WashEntity> list(){
+    public List<Wash> list(){
         return washService.list();
     }
     @GetMapping("/{id}")
-    public Optional<WashEntity> getbyid(int id){
+    public Optional<Wash> getbyid(@PathVariable Long id){
         return washService.findwashById(id);
     }
     @GetMapping("/findbyCustomerId/{id}")
-    public List<WashEntity> listByCustomerId(@PathVariable int id){
+    public List<Wash> listByCustomerId(@PathVariable Long id){
         return washService.listByCustomerId(id);
     }
     @GetMapping("/findbyEmployeeId/{id}")
-    public List<WashEntity> listByEmployeeId(@PathVariable int id){
+    public List<Wash> listByEmployeeId(@PathVariable Long id){
         return washService.listByEmployeeId(id);
     }
     @GetMapping("/findDetailsbyEmployeeId/{id}")
-    public List DetailedWashList(@PathVariable int id){
+    public String DetailedWashList(@PathVariable Long id){
         return washService.findDetailList(id);
     }
     

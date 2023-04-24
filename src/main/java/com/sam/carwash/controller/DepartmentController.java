@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sam.carwash.entity.DepartmentEntity;
-import com.sam.carwash.model.Department;
+import com.sam.carwash.entity.Department;
 import com.sam.carwash.service.DepartmentService;
 
 @RestController
@@ -24,7 +23,7 @@ public class DepartmentController {
        return  _deparmentService.getdepartments();
     }
     @PostMapping("/save")
-    public DepartmentEntity saveDepartment(@RequestBody DepartmentEntity departmentEntity){
+    public Department saveDepartment(@RequestBody Department departmentEntity){
         return _deparmentService.saveDepartment(departmentEntity);
     }
 }

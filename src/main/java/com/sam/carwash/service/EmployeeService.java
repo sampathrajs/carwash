@@ -8,8 +8,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sam.carwash.entity.EmployeeEntity;
-import com.sam.carwash.model.Employee;
+import com.sam.carwash.entity.Employee;
 import com.sam.carwash.repository.EmployeeRepository;
 
 @Service
@@ -20,18 +19,12 @@ public class EmployeeService {
     private ModelMapper modelMapper;
 
     public List<Employee> getEmployees() {
-        List<Employee> employees = new ArrayList<Employee>();
-        List<EmployeeEntity> employeeEntities = employeeRepository.findAll();
-        for (EmployeeEntity employeeEntity : employeeEntities) {
-            Employee employee = modelMapper.map(employeeEntity, Employee.class);
-            employees.add(employee);
-        }
-        return employees;
+        return employeeRepository.findAll();
     }
-    public EmployeeEntity saveEmployee(EmployeeEntity employee){
+    public Employee saveEmployee(Employee employee){
         return employeeRepository.save(employee);
     }
-    public Optional<EmployeeEntity> getEmployee(Integer id){
+    public Optional<Employee> getEmployee(Long id){
         return employeeRepository.findById(id);
     }
 

@@ -2,9 +2,9 @@ package com.sam.carwash.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.sam.carwash.entity.EmployeeEntity;
+import com.sam.carwash.entity.Employee;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<EmployeeEntity,Integer>{
+public interface EmployeeRepository extends JpaRepository<Employee,Long>{
      
 }

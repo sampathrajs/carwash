@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sam.carwash.entity.CustomerEntity;
+import com.sam.carwash.entity.Customer;
 import com.sam.carwash.service.CustomerService;
 
 @RestController
@@ -21,17 +21,17 @@ public class CustomerController {
     private CustomerService customerService;
 
     @PostMapping("/save")
-    public CustomerEntity saveCustomer(@RequestBody CustomerEntity customerEntity){
+    public Customer saveCustomer(@RequestBody Customer customerEntity){
         System.out.println(customerEntity);
         return customerService.save(customerEntity);
     }
 
     @GetMapping()
-    public List<CustomerEntity> getCustomers(){
+    public List<Customer> getCustomers(){
         return customerService.getCustomers();
     }
     @GetMapping("/{id}")
-    public Optional<CustomerEntity> getCustomer(@PathVariable int id){
+    public Optional<Customer> getCustomer(@PathVariable Long id){
         return customerService.getCustomer(id);
     }
     

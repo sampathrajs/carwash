@@ -6,8 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sam.carwash.entity.WashEntity;
-import com.sam.carwash.model.Wash;
+import com.sam.carwash.entity.Wash;
 import com.sam.carwash.repository.WashRepository;
 
 @Service
@@ -15,22 +14,22 @@ public class WashService {
     @Autowired
     private WashRepository washRepository;
 
-    public WashEntity save(WashEntity washEntity){
+    public Wash save(Wash washEntity){
         return washRepository.save(washEntity);
     }
-    public List<WashEntity> list(){
+    public List<Wash> list(){
         return washRepository.findAll();
     }
-    public Optional<WashEntity> findwashById(int id){
+    public Optional<Wash> findwashById(Long id){
         return washRepository.findById(id);
     }
-    public List<WashEntity> listByCustomerId(int id){
+    public List<Wash> listByCustomerId(Long id){
         return washRepository.findByCustomerId(id);
     }
-    public List<WashEntity> listByEmployeeId(int id){
+    public List<Wash> listByEmployeeId(Long id){
         return washRepository.findByEmployeeId(id);
     }
-    public List findDetailList(int id){
+    public String findDetailList(Long id){
         return washRepository.findDetails(id);
     }
     

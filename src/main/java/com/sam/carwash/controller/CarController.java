@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sam.carwash.entity.CarEntity;
+import com.sam.carwash.entity.CarDetails;
 import com.sam.carwash.service.Carservice;
 
 @RestController
@@ -22,19 +22,19 @@ public class CarController {
     private Carservice carservice;
 
     @PostMapping("/save")
-    public CarEntity saveCar(@RequestBody CarEntity car){
+    public CarDetails saveCar(@RequestBody CarDetails car){
         return carservice.saveCar(car);
     }
     @GetMapping("/list")
-    public List<CarEntity> getCars(){
+    public List<CarDetails> getCars(){
         return carservice.getCars();
     }
     @GetMapping("/getcar/{id}")
-    public Optional<CarEntity> getCar(@PathVariable Integer id){
+    public Optional<CarDetails> getCar(@PathVariable Long id){
         return carservice.getCar(id);
     }
     @DeleteMapping("/remove/{id}")
-    public String removeCar(@PathVariable Integer id){
+    public String removeCar(@PathVariable Long id){
         return carservice.removeCar(id);
     }
 

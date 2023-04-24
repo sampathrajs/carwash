@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sam.carwash.entity.CarEntity;
+import com.sam.carwash.entity.CarDetails;
 import com.sam.carwash.repository.CarRepository;
 
 @Service
@@ -14,16 +14,16 @@ public class Carservice {
     @Autowired
     private CarRepository carRepository;
     
-    public CarEntity saveCar(CarEntity car){
+    public CarDetails saveCar(CarDetails car){
         return carRepository.save(car);
     }
-    public List<CarEntity> getCars(){
+    public List<CarDetails> getCars(){
         return carRepository.findAll();
     }
-    public Optional<CarEntity> getCar(Integer id){
+    public Optional<CarDetails> getCar(Long id){
         return carRepository.findById(id);
     }
-    public String removeCar(Integer id){
+    public String removeCar(Long id){
         carRepository.deleteById(id);
         return "car detail deleted successfully";
     }

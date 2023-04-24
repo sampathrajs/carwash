@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
-import com.sam.carwash.entity.EmployeeEntity;
-import com.sam.carwash.model.Employee;
+import com.sam.carwash.entity.Employee;
 import com.sam.carwash.service.EmployeeService;
 
 @RestController
@@ -25,12 +24,12 @@ public class EmployeeController {
         return employeeService.getEmployees();
     }
     @PostMapping("/save")
-    public EmployeeEntity saveEmployee(@RequestBody EmployeeEntity employee){
+    public Employee saveEmployee(@RequestBody Employee employee){
         return employeeService.saveEmployee(employee);
     }
 
     @GetMapping("/getEmployee/{id}")
-    public Optional<EmployeeEntity> getEmployee(@PathVariable Integer id){
+    public Optional<Employee> getEmployee(@PathVariable Long id){
         return employeeService.getEmployee(id);
     }
     
