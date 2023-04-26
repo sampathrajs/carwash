@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.sam.carwash.entity.Wash;
+import com.sam.carwash.model.WashDetail;
 
 @Repository
 public interface WashRepository extends JpaRepository<Wash,Long> {
@@ -15,9 +16,7 @@ public interface WashRepository extends JpaRepository<Wash,Long> {
     List<Wash> findByCustomerId(@Param("id") Long id);
     @Query(value = "select * from wash where employee_id=:id",nativeQuery = true)
     List<Wash> findByEmployeeId(@Param("id") Long id);
-    @Query(value = "select wash.id,wash.wash_date,wash.price,customer.name,employee.name FROM wash join customer on wash.customer_id=customer.id join employee on employee.id=wash.employee_id where wash.employee_id=:id",nativeQuery = true)
-    String findDetails(@Param("id") Long id);
- 
-
+    @Query(value = "select new com.sam.carwash.model.WashDetail(w.id as id,w.wash_date as washdate,w.price as price,c.name  as customername,e.name  as employeename) FROM wash w join customer c on w.customer_id=c.id join employee e on e.id=w.employee_id where w.employee_id=:id",nativeQuery = true)
+    List<WashDetail> findDetailsexp(@Param("id") Long id);
     
 }

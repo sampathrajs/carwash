@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sam.carwash.entity.Wash;
+import com.sam.carwash.model.WashDetail;
 import com.sam.carwash.service.WashService;
 
 @RestController
@@ -42,7 +43,7 @@ return washService.save(washEntity);
         return washService.listByEmployeeId(id);
     }
     @GetMapping("/findDetailsbyEmployeeId/{id}")
-    public String DetailedWashList(@PathVariable Long id){
+    public List<WashDetail> DetailedWashList(@PathVariable Long id){
         return washService.findDetailList(id);
     }
     

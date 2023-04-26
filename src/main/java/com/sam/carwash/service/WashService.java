@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sam.carwash.entity.Wash;
+import com.sam.carwash.model.WashDetail;
 import com.sam.carwash.repository.WashRepository;
 
 @Service
@@ -29,8 +30,8 @@ public class WashService {
     public List<Wash> listByEmployeeId(Long id){
         return washRepository.findByEmployeeId(id);
     }
-    public String findDetailList(Long id){
-        return washRepository.findDetails(id);
+    public List<WashDetail> findDetailList(Long id){
+        return washRepository.findDetailsexp(id);
     }
     
     
