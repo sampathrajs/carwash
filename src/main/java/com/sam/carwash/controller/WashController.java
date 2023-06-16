@@ -43,7 +43,7 @@ return washService.save(washEntity);
         return washService.listByEmployeeId(id);
     }
     @GetMapping("/findDetailsbyEmployeeId/{id}")
-    public List<WashDetail> DetailedWashList(@PathVariable Long id){
+    public Object DetailedWashList(@PathVariable Long id){
         return washService.findDetailList(id);
     }
     

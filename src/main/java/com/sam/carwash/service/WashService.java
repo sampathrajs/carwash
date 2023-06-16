@@ -30,7 +30,7 @@ public class WashService {
     public List<Wash> listByEmployeeId(Long id){
         return washRepository.findByEmployeeId(id);
     }
-    public List<WashDetail> findDetailList(Long id){
+    public Object findDetailList(Long id){
         return washRepository.findDetailsexp(id);
     }
     
